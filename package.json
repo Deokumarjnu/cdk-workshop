@@ -8,7 +8,10 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "clean": "rimraf cdk.out coverage",
+    "deploy": "npm run clean && NAMESPACE=$(whoami | tr '.' '-') cdk deploy",
+    "synth": "npm run clean && NAMESPACE=$(whoami | tr '.' '-') cdk synth > template.yaml"
   },
   "devDependencies": {
     "aws-cdk": "2.25.0",
